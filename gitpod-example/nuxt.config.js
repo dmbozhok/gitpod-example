@@ -16,11 +16,14 @@ module.exports = {
   /*
   ** Bootstrap-vue section
   */
-  modules: ['bootstrap-vue/nuxt'],
+  modules: ['bootstrap-vue/nuxt','@nuxtjs/axios'],
+  axios: {
+    // proxyHeaders: false
+  },
   /*
   ** Customize the progress bar color
   */
-  loading: { color: '#3B8070' },
+  loading: false,
   /*
   ** Build configuration
   */
