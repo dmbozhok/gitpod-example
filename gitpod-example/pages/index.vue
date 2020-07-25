@@ -7,9 +7,9 @@
       <h2 class="subtitle">
         Создан для общения
       </h2>
-      <transition-group name="fade">
+      <transition-group name="fade" mode="out-in" tag="div">
         <name-form v-show="showNameForm" key="NameFormElement"></name-form>
-        <div v-show="!showNameForm" key="MainFormElement">main form</div>
+        <main-form v-show="!showNameForm" key="MainFormElement"></main-form>
       </transition-group>
     </div>
   </section>
@@ -17,6 +17,7 @@
 
 <script>
 import NameForm from '~/components/NameForm.vue'
+import MainForm from "~/components/MainForm.vue";
 
 export default {
   data () {
@@ -27,7 +28,6 @@ export default {
   computed: {
     showNameForm: function() {
       let name = this.$store.state.name;
-      console.log(name);
       return name == '';
     },
     showMainForm: function() {
@@ -35,7 +35,8 @@ export default {
     }
   },
   components: {
-    NameForm
+    NameForm,
+    MainForm
   }
 }
 </script>

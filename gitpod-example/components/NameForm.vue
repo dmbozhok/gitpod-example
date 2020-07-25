@@ -28,7 +28,7 @@ export default {
     },
     methods: {
       onSubmit(evt) {
-        evt.preventDefault()
+        evt.preventDefault();
         this.$store.dispatch('setName',this.name);
       }
     }
