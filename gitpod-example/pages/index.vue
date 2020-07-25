@@ -1,33 +1,41 @@
 <template>
-  <section class="container">
+  <section class="container" :class="{'main-form':showMainForm}">
     <div>
-      <app-logo/>
       <h1 class="title">
-        gitpod-example
+        Чат на базе gitpod
       </h1>
       <h2 class="subtitle">
-        Test gitpod app example
+        Создан для общения
       </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
-      </div>
+      <transition-group name="fade">
+        <name-form v-show="showNameForm" key="NameFormElement"></name-form>
+        <div v-show="!showNameForm" key="MainFormElement">main form</div>
+      </transition-group>
     </div>
   </section>
 </template>
 
 <script>
-import AppLogo from '~/components/AppLogo.vue'
+import NameForm from '~/components/NameForm.vue'
 
 export default {
+  data () {
+    return {
+      name: this.$store.state.name
+    }
+  },
+  computed: {
+    showNameForm: function() {
+      let name = this.$store.state.name;
+      console.log(name);
+      return name == '';
+    },
+    showMainForm: function() {
+      return !this.showNameForm;
+    }
+  },
   components: {
-    AppLogo
+    NameForm
   }
 }
 </script>
@@ -40,7 +48,10 @@ export default {
   align-items: center;
   text-align: center;
 }
-
+.main-form {
+  flex-direction: column;
+  justify-content: start;
+}
 .title {
   font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
   display: block;
