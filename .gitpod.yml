@@ -7,5 +7,5 @@ ports:
     onOpen: ignore
 tasks:
   - init: 'cd gitpod-example && npm install && npm i -g nuxt && nuxt build'
-  - command: 'cd gitpod-example && nuxt start'
+    command: 'cd gitpod-example && nuxt start'
   - command: 'npm i -g json-server && json-server db.json --port 3001'
