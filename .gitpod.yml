@@ -1,0 +1,9 @@
+image:
+  file: .gitpod.Dockerfile
+ports:
+  - port: 3000-8999
+    onOpen: ignore
+tasks:
+  - init: 'cd gitpod-example && npm install && npm i -g nuxt && nuxt build'
+  - command: 'cd gitpod-example && nuxt start'
+  - command: 'npm i -g json-server && json-server db.json --port 3001'

@@ -17,7 +17,7 @@
 </div>
 </template>
 <script>
-const api_path = "http://localhost:3001/posts";
+const api_path = "https://3001-baf6b45f-b5c5-4130-b964-8ea83f51a811.ws-eu01.gitpod.io/";
 let interval;
 export default {
     data(){
@@ -69,6 +69,6 @@ export default {
         font-weight: 700;
     }
     .messageForm {
-        margin: 1rem 0; 
+        margin: 1rem 0;
     }
 </style>
